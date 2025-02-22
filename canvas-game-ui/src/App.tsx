@@ -6,6 +6,16 @@ function App() {
   const [globalCtx, setGlobalCtx] = useState<null | CanvasRenderingContext2D>(null)
   const [isDrawing, setIsDrawing] = useState<boolean>(false)
   useEffect(() => {
+    const ws = new WebSocket("http://localhost:3000/ws")
+    ws.onopen = () => {
+      ws.send("hello world")
+    }
+    ws.onmessage = (msg) => {
+      console.log(msg)
+    }
+  }, [])
+
+  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -20,7 +30,7 @@ function App() {
       setIsDrawing(true)
     }
     const draw = (event: MouseEvent) => {
-      if (!isDrawing) return
+      if (!isDrawing) return;
       ctx.lineTo(event.offsetX, event.offsetY)
       ctx.stroke()
     }
