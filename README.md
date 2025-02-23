@@ -29,6 +29,10 @@ A real-time multiplayer game where players take turns drawing prompts on a share
 3. **Guessing Phase** – Other players submit guesses via WebSockets, and the game checks for correct answers.
 4. **Scoring & Next Round** – Points are awarded, and the next player gets their turn to draw.
 
+## Current Working Demo
+
+https://github.com/user-attachments/assets/a4de34d6-c77b-487e-95c7-17eb73a39495
+
 ## Tech Stack
 - **Frontend:** React.js, Canvas API
 - **Backend:** Golang, net/http, Gorilla Websockets
