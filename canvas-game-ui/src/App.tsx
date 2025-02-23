@@ -6,13 +6,22 @@ function App() {
   const [globalCtx, setGlobalCtx] = useState<null | CanvasRenderingContext2D>(null)
   const [isDrawing, setIsDrawing] = useState<boolean>(false)
   useEffect(() => {
-    const ws = new WebSocket("http://localhost:3000/ws")
+    const ws = new WebSocket("ws://localhost:3000/ws")
     ws.onopen = () => {
       ws.send("hello world")
     }
     ws.onmessage = (msg) => {
       console.log(msg)
     }
+    setInterval(() => {
+      ws.send(`random msg no -> ${Math.random()}`)
+    }, 5000)
+    return () => {
+      if (ws.readyState === WebSocket.OPEN) {
+        ws.close();
+      }
+    }
+
   }, [])
 
   useEffect(() => {
