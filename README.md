@@ -1,6 +1,6 @@
 # Draw & Guess: Real-Time Multiplayer Web Game
 
-Create a real-time multiplayer game where players take turns drawing prompts on a shared digital canvas, while others guess the drawing within a limited time. The game leverages **Socket.IO/WebSockets** for real-time communication and **HTML Canvas** for drawing.
+A real-time multiplayer game where players take turns drawing prompts on a shared digital canvas, while others guess the drawing within a limited time. The game leverages **Gorilla WebSockets Library** for real-time communication and **HTML Canvas** for drawing.
 
 ## Key Features
 
@@ -31,15 +31,15 @@ Create a real-time multiplayer game where players take turns drawing prompts on 
 
 ## Tech Stack
 - **Frontend:** React.js, Canvas API
-- **Backend:** Node.js, Express.js, Socket.IO
+- **Backend:** Golang, net/http, Gorilla Websockets
 - **WebSockets for Real-Time Communication**
 
 ## Getting Started
 ### **Installation**
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/draw-and-guess.git
-   cd draw-and-guess
+   git clone https://github.com/responsetime/canvas-game.git
+   cd canvas-game
    ```
 2. Install dependencies:
    ```sh
@@ -49,7 +49,7 @@ Create a real-time multiplayer game where players take turns drawing prompts on 
    ```sh
    npm start
    ```
-4. Open the game in a browser at `http://localhost:3000`
+4. Open the game in a browser at `http://localhost:5173`
 
 ## Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
