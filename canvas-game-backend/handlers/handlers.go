@@ -40,16 +40,21 @@ func Pong(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte("pong"))
 }
 func handleConn(conn *websocket.Conn) {
-	fmt.Println(conn.LocalAddr().String())
 	if conn != nil {
 		for {
 			_, message, err := conn.ReadMessage()
 			if err != nil {
 				log.Println("read:", err)
+				delete(connections, conn)
 				conn.Close()
 				break
 			}
-			log.Printf("recv: %s", message)
+
+			for val := range connections {
+				if val != conn {
+					val.WriteMessage(websocket.TextMessage, message)
+				}
+			}
 		}
 	}
 }
