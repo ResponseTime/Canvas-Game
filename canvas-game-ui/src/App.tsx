@@ -9,7 +9,7 @@ function App() {
 
   useEffect(() => {
     const ws = new WebSocket("ws://localhost:3000/ws")
-    setSocket(ws)
+    ws.onopen = () => setSocket(ws)
     return () => {
       if (ws.readyState === WebSocket.OPEN) {
         ws.close();
